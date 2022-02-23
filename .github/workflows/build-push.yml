@@ -23,7 +23,7 @@ jobs:
         with:
           context: .
           tags: | 
-            ghcr.io/Vizual-App/vizual:latest
+            ghcr.io/vizual-app/vizual:latest
           push: ${{ github.ref == 'refs/heads/main' }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
