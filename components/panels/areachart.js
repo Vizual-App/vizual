@@ -50,7 +50,7 @@ export default function AreaChartPanel() {
     }, []);
 
     return (
-        <div className="block w-full overflow-x-auto">
+        <div className="block w-full flex justify-center overflow-x-auto">
             <AreaChart
                 ref={chartRef}
                 data={data}

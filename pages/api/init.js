@@ -59,7 +59,7 @@ export default async function handler(request, response) {
                     id: 2,
                     name: 'Node Packages Bar Chart',
                     type: 'BAR_CHART',
-                    query: 'SELECT * FROM node_packages'
+                    query: 'SELECT name, count FROM node_packages'
                 },
                 {
                     id: 3,
