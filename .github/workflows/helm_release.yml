@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     paths:
-      - 'helm/**'
+      - 'charts/**'
     branches:
       - main
 jobs:
