@@ -6,7 +6,6 @@ export default function BarChartPanel({ source, query }) {
 
     const [initStatus, setInitStatus] = useState(false);
     const [chartData, setChartData] = useState([{ values: [{ x: 'Test', y: 0 }] }]);
-    const [windowSize, setWindowSize] = useState({ width: 421, height: 190, });
 
     const getData = async () => {
         const request = await fetch("/api/panel", {
@@ -24,27 +23,6 @@ export default function BarChartPanel({ source, query }) {
             if (index === (json.length - 1)) {
                 setChartData([{ values: graphData }]);
                 setInitStatus(true);
-
-                const handleResize = () => {
-                    let h = chartRef.current._innerHeight;
-                    let w = chartRef.current._innerWidth;
-
-                    if (chartRef.current._innerHeight < 250) {
-                        h = 250;
-                    }
-
-                    if (chartRef.current._innerWidth < 421) {
-                        w = 421;
-                    }
-
-                    setWindowSize({
-                        width: w,
-                        height: h
-                    });
-                }
-
-                window.addEventListener("resize", handleResize.bind(this));
-                handleResize();
             }
         });
     };
@@ -64,8 +42,8 @@ export default function BarChartPanel({ source, query }) {
                     <BarChart
                         ref={chartRef}
                         data={chartData}
-                        width={windowSize.width}
-                        height={windowSize.height}
+                        width={500}
+                        height={280}
                         tooltipHtml={displayLabel}
                         yAxis={{ tickArguments: [3] }}
                         color={"red"}

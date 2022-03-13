@@ -33,7 +33,7 @@ export default function TablePanel({ source, query }) {
                             <tr>
                                 {
                                     headers.map(item => (
-                                        <th key={item} className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-sm border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">{item.toUpperCase()}</th>
+                                        <th key={item} className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">{item.toUpperCase()}</th>
                                     ))
                                 }
                             </tr>
@@ -44,7 +44,7 @@ export default function TablePanel({ source, query }) {
                                     <tr key={item.id}>
                                         {
                                             Object.keys(item).map((k) => (
-                                                <td key={k} className="border-t-0 px-6 align-middle border-l-0 border-r-0 font-semibold text-sm text-blueGray-500 whitespace-nowrap p-4 text-left">{item[k]}</td>
+                                                <td key={k} className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{item[k]}</td>
                                             ))
                                         }
                                     </tr>

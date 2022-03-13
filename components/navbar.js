@@ -66,7 +66,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="mx-auto bg-white shadow-lg mb-5">
+    <div className="mx-auto bg-white shadow-lg">
       <div className="flex flex-wrap h-16">
         {/* Menu button */}
         <div className="w-full flex flex-1 justify-start items-center px-10 lg:hidden">

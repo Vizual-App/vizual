@@ -25,11 +25,11 @@ export default function Panel({ id, name, type, source, query, editmode }) {
     const renderPanel = (type) => {
         switch (type) {
             case "BAR_CHART":
-                return <>
+                return <div style={{ 'min-height': '350px' }}>
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
-                        <div className="flex flex-wrap items-center">
+                        <div className="">
                             <div className="relative w-full p-2 max-w-full flex-grow flex-1">
-                                <h3 className="font-semibold text-md text-blueGray-600 uppercase">{name}</h3>
+                                <h3 className="font-semibold text-base text-blueGray-700">{name}</h3>
                             </div>
                             <div className="relative w-full px-2 max-w-full flex-grow flex-1 text-right">
                                 {
@@ -50,14 +50,14 @@ export default function Panel({ id, name, type, source, query, editmode }) {
                         </div>
                     </div>
                     <BarChartPanel source={source} query={query}></BarChartPanel>
-                </>;
+                </div>;
 
             case "DATA_TABLE":
-                return <>
+                return <div style={{'min-height': '350px'}}>
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
-                        <div className="flex flex-wrap items-center">
+                        <div className="">
                             <div className="relative w-full p-2 max-w-full flex-grow flex-1">
-                                <h3 className="font-semibold text-md text-blueGray-600 uppercase">{name}</h3>
+                                <h3 className="font-semibold text-base text-blueGray-700">{name}</h3>
                             </div>
                             <div className="relative w-full px-2 max-w-full flex-grow flex-1 text-right">
                                 {
@@ -78,14 +78,14 @@ export default function Panel({ id, name, type, source, query, editmode }) {
                         </div>
                     </div>
                     <TablePanel source={source} query={query}></TablePanel>
-                </>;
+                </div>;
 
             case "AREA_CHART":
-                return <>
+                return <div style={{ 'min-height': '350px' }}>
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
-                        <div className="flex flex-wrap items-center">
+                        <div className="">
                             <div className="relative w-full p-2 max-w-full flex-grow flex-1">
-                                <h3 className="font-semibold text-md text-blueGray-600 uppercase">{name}</h3>
+                                <h3 className="font-semibold text-base text-blueGray-700">{name}</h3>
                             </div>
                             <div className="relative w-full px-2 max-w-full flex-grow flex-1 text-right">
                                 {
@@ -106,7 +106,7 @@ export default function Panel({ id, name, type, source, query, editmode }) {
                         </div>
                     </div>
                     <AreaChartPanel source={source} query={query}></AreaChartPanel>
-                </>;
+                </div>;
         }
     }
 

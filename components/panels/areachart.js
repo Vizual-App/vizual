@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { AreaChart } from 'react-d3-components';
 
 export default function AreaChartPanel() {
@@ -17,45 +17,17 @@ export default function AreaChartPanel() {
 
     const chartRef = useRef();
 
-    const [windowSize, setWindowSize] = useState({
-        width: 421,
-        height: 190,
-    });
-
     const displayLabel = (label) => {
         return label;
     }
-
-    useEffect(() => {
-        const handleResize = () => {
-            let h = chartRef.current._innerHeight;
-            let w = chartRef.current._innerWidth;
-
-            if (chartRef.current._innerHeight < 250) {
-                h = 250;
-            }
-
-            if (chartRef.current._innerWidth < 421) {
-                w = 421;
-            }
-
-            setWindowSize({
-                width: w,
-                height: h
-            });
-        }
-
-        window.addEventListener("resize", handleResize.bind(this));
-        handleResize();
-    }, []);
 
     return (
         <div className="block w-full flex justify-center overflow-x-auto">
             <AreaChart
                 ref={chartRef}
                 data={data}
-                width={windowSize.width}
-                height={windowSize.height}
+                width={500}
+                height={280}
                 tooltipHtml={displayLabel}
                 xAxis={{ tickArguments: [5] }}
                 yAxis={{ tickArguments: [3] }}
