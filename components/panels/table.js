@@ -53,7 +53,7 @@ export default function TablePanel({ source, query }) {
                         </tbody>
                     </table>
                     :
-                    <div className="flex justify-center">
+                    <div className="flex items-center justify-center" style={{height: '250px'}}>
                         <h6 className="text-xl font-normal leading-normal mt-0 mb-2 text-blueGray-800">
                             Loading ...
                         </h6>

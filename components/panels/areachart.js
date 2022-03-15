@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { AreaChart } from 'react-d3-components';
+import { AreaChart, d3 } from 'react-d3-components';
 
 export default function AreaChartPanel() {
     const data = [
@@ -16,10 +16,11 @@ export default function AreaChartPanel() {
     ];
 
     const chartRef = useRef();
+    const colorScale = d3.scale.ordinal().range(['#cbd5e1', '#94a3b8', '#64748b', '#475569']);
 
     const displayLabel = (label) => {
         return label;
-    }
+    };
 
     return (
         <div className="block w-full flex justify-center overflow-x-auto">
@@ -31,6 +32,7 @@ export default function AreaChartPanel() {
                 tooltipHtml={displayLabel}
                 xAxis={{ tickArguments: [5] }}
                 yAxis={{ tickArguments: [3] }}
+                colorScale={colorScale}
                 margin={{ top: 20, bottom: 50, left: 60, right: 40 }} />
         </div>
     );

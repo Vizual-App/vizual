@@ -5,7 +5,7 @@ export default function BarChartPanel({ source, query }) {
     const chartRef = useRef();
 
     const [initStatus, setInitStatus] = useState(false);
-    const [chartData, setChartData] = useState([{ values: [{ x: 'Test', y: 0 }] }]);
+    const [chartData, setChartData] = useState([{ labels: 'data', values: [{ x: 'Test', y: 0 }] }]);
 
     const getData = async () => {
         const request = await fetch("/api/panel", {
@@ -33,7 +33,11 @@ export default function BarChartPanel({ source, query }) {
 
     const displayLabel = (label) => {
         return label;
-    }
+    };
+
+    const scale = value => {
+        return '#475569';
+    };
 
     return (
         <div className="block w-full flex justify-center overflow-x-auto">
@@ -46,10 +50,10 @@ export default function BarChartPanel({ source, query }) {
                         height={280}
                         tooltipHtml={displayLabel}
                         yAxis={{ tickArguments: [3] }}
-                        color={"red"}
+                        colorScale={scale}
                         margin={{ top: 20, bottom: 50, left: 60, right: 40 }} />
                     :
-                    <div className="flex justify-center">
+                    <div className="flex items-center justify-center" style={{height: '250px'}}>
                         <h6 className="text-xl font-normal leading-normal mt-0 mb-2 text-blueGray-800">
                             Loading ...
                         </h6>
