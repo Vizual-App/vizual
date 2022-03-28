@@ -65,6 +65,11 @@ export default function Navbar() {
     router.push("/dashboard/view/" + id);
   };
 
+  const logout = () => {
+    window.localStorage.removeItem("TOKEN");
+    router.push("/login");
+  };
+
   return (
     <div className="mx-auto bg-white shadow-lg">
       <div className="flex flex-wrap h-16">
@@ -164,7 +169,7 @@ export default function Navbar() {
             <a
               href="#pablo"
               className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-white hover:font-semibold"
-              onClick={e => e.preventDefault()}
+              onClick={logout}
             >Logout</a>
           </div>
         </div>

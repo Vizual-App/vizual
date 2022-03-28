@@ -3,9 +3,21 @@ import Image from 'next/image';
 export default function Home() {
   const src = "/pattern_nextjs.png";
 
+  const loginGithub = () => {
+    window.location.href = 'https://github.com/login/oauth/authorize?client_id=8cb0ffb71a800aa61112&redirect_uri=http://localhost:3000/callback&response_type=code&scope=offline_access&state=xBFykFZyP2bTGIS'
+  };
+
+  const loginWithDex = () => {
+    window.location.href = 'http://10.142.202.251:5556/dex/auth/local/login?back=%2Fdex%2Fauth%3Fclient_id%3Dexample-app%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%26state%3DxBFykFZyP2bTGIS&state=srghkqw2jilcbmnom4fxyl6py'
+  };
+
+  const loginWithMicrosoft = () => {
+    window.location.href = 'https://login.microsoftonline.com/51870632-7414-4197-8a61-0cc21e2bba54/oauth2/v2.0/authorize?client_id=cddf4595-71b2-4629-88f2-d758e50efe8a&redirect_uri=http://localhost:3000/callback&response_type=code&scope=mail.read&state=xBFykFZyP2bTGIS&&response_mode=query'
+  };
+
   return (
     <section className="relative w-full h-full py-40 min-h-screen">
-      <div className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full" style={{ "background-image": "url('https://demos.creative-tim.com/notus-nextjs/img/register_bg_2.png')" }}>
+      <div className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full" style={{ "backgroundImage": "url('https://demos.creative-tim.com/notus-nextjs/img/register_bg_2.png')" }}>
       </div>
       <div className="container mx-auto px-4 h-full">
         <div className="flex content-center items-center justify-center h-full">
@@ -26,13 +38,13 @@ export default function Home() {
                 </div>
 
                 <div className="btn-wrapper text-center">
-                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button" onClick={loginGithub}>
                     <div className='className="w-5 mr-2'>
-                      <Image alt="logo" height="15px" width="15px" classNamr="w-5 mr-1" src="/github.svg" />
+                      <Image alt="logo" height="15px" width="15px" className="w-5 mr-1" src="/github.svg" />
                     </div>
                     Github
                   </button>
-                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button" onClick={loginWithMicrosoft}>
                     <div className='className="w-5 mr-2'>
                       <Image alt="logo" height="13px" width="13px" src="/microsoft.svg" />
                     </div>
@@ -48,7 +60,7 @@ export default function Home() {
 
                 <form>
                   <div className="text-center mt-2">
-                    <button className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">Sign In</button>
+                    <button className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button" onClick={loginWithDex}>Sign In</button>
                   </div>
                 </form>
               </div>
