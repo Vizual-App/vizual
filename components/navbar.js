@@ -9,6 +9,7 @@ export default function Navbar() {
   const [dashboardsDropdownStatus, setDashboardsDropdownStatus] = useState(false);
   const [profileDropdownStatus, setProfileDropdownStatus] = useState(false);
   const [navStatus, setNavStatus] = useState(false);
+  const [user, setUser] = useState({ name: '' });
 
   const dashboardsBtnRef = createRef();
   const dashboardsDropdownRef = createRef();
@@ -16,6 +17,7 @@ export default function Navbar() {
   const profileDropdownRef = createRef();
 
   const router = useRouter();
+
 
   useEffect(() => {
     getDashboards();
@@ -25,6 +27,18 @@ export default function Navbar() {
     let res = await fetch("/api/dashboard");
     let dashboards = await res.json();
     setDashboards(dashboards);
+
+    // get user info from dex
+    getUserInfo();
+  };
+
+  const getUserInfo = async () => {
+    const res = await fetch("/dex/userinfo", {
+      method: "GET",
+      headers: { "Authorization": "Bearer " + window.localStorage.getItem("USER_TOKEN") }
+    });
+    const json = await res.json();
+    setUser({ name: json.name });
   };
 
   const openDropdownPopover = (type) => {
@@ -66,7 +80,7 @@ export default function Navbar() {
   };
 
   const logout = () => {
-    window.localStorage.removeItem("TOKEN");
+    window.localStorage.removeItem("USER_TOKEN");
     router.push("/login");
   };
 
@@ -150,7 +164,7 @@ export default function Navbar() {
                 ? closeDropdownPopover('profile')
                 : openDropdownPopover('profile');
             }}>
-            Madhu
+            {user.name}
             <i className={`px-2 fas ${profileDropdownStatus ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
           </button>
           <div

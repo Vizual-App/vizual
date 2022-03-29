@@ -4,11 +4,11 @@ export default function Home() {
   const src = "/pattern_nextjs.png";
 
   const loginGithub = () => {
-    window.location.href = 'https://github.com/login/oauth/authorize?client_id=8cb0ffb71a800aa61112&redirect_uri=http://localhost:3000/callback&response_type=code&scope=offline_access&state=xBFykFZyP2bTGIS'
+    window.location.href = 'https://github.com/login/oauth/authorize?client_id=8cb0ffb71a800aa61112&redirect_uri=http://localhost:3000/callback&response_type=code&scope=user:email&state=xBFykFZyP2bTGIS'
   };
 
   const loginWithDex = () => {
-    window.location.href = 'http://10.142.202.251:5556/dex/auth/local/login?back=%2Fdex%2Fauth%3Fclient_id%3Dexample-app%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fcallback%26response_type%3Dcode%26scope%3Dopenid%26state%3DxBFykFZyP2bTGIS&state=srghkqw2jilcbmnom4fxyl6py'
+    window.location.href = 'http://212.2.246.126:5556/dex/auth/local?client_id=example-app&redirect_uri=http://localhost:3000/callback&response_type=id_token&scope=openid+profile+email+offline_access&nonce=srghkqw2jilcbmnom4fxyl6py'
   };
 
   const loginWithMicrosoft = () => {
