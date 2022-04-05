@@ -4,15 +4,22 @@ export default function Home() {
   const src = "/pattern_nextjs.png";
 
   const loginGithub = () => {
-    window.location.href = 'https://github.com/login/oauth/authorize?client_id=8cb0ffb71a800aa61112&redirect_uri=http://localhost:3000/callback&response_type=code&scope=user:email&state=xBFykFZyP2bTGIS'
-  };
-
-  const loginWithDex = () => {
-    window.location.href = 'http://212.2.246.126:5556/dex/auth/local?client_id=example-app&redirect_uri=http://localhost:3000/callback&response_type=id_token&scope=openid+profile+email+offline_access&nonce=srghkqw2jilcbmnom4fxyl6py'
+    window.location.href = getLoginUrl('8cb0ffb71a800aa61112', 'github');
   };
 
   const loginWithMicrosoft = () => {
-    window.location.href = 'https://login.microsoftonline.com/51870632-7414-4197-8a61-0cc21e2bba54/oauth2/v2.0/authorize?client_id=cddf4595-71b2-4629-88f2-d758e50efe8a&redirect_uri=http://localhost:3000/callback&response_type=code&scope=mail.read&state=xBFykFZyP2bTGIS&&response_mode=query'
+    window.location.href = getLoginUrl('cddf4595-71b2-4629-88f2-d758e50efe8', 'microsoft');
+  };
+
+  const loginWithDex = () => {
+    window.location.href = getLoginUrl('example-app', 'local');
+  };
+
+  const getLoginUrl = (id, type) => {
+    return 'http://212.2.246.126:5556/dex/auth?client_id=' + id +
+      '&redirect_uri=http://127.0.0.1:5556/dex/callback&response_type=id_token&' +
+      'scope=email+openid&state=xBFykFZyP2bTGIS&nonce=1234567890&connector_id='
+      + type;
   };
 
   return (
