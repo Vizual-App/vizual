@@ -17,7 +17,7 @@ export default function Home() {
 
   const getLoginUrl = (id, type) => {
     return 'http://212.2.246.126:5556/dex/auth?client_id=' + id +
-      '&redirect_uri=http://127.0.0.1:5556/dex/callback&response_type=id_token&' +
+      '&redirect_uri=http://localhost:5556/dex/callback&response_type=id_token&' +
       'scope=email+openid&state=xBFykFZyP2bTGIS&nonce=1234567890&connector_id='
       + type;
   };
