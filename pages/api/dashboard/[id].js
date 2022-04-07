@@ -6,9 +6,7 @@ const pool = new Pool({
     port: process.env.POSTGRES_PORT,
     user: process.env.POSTGRES_USERNAME,
     password: process.env.POSTGRES_PASSWORD,
-    ssl: {
-        rejectUnauthorized: false,
-    }
+    ssl: false
 });
 
 const getDashboard = async (request) => {

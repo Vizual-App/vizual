@@ -4,21 +4,25 @@ export default function Home() {
   const src = "/pattern_nextjs.png";
 
   const loginGithub = () => {
-    window.location.href = getLoginUrl('8cb0ffb71a800aa61112', 'github');
+    window.location.href = getLoginUrl('8cb0ffb71a800aa61112', 'github', 'http://127.0.0.1:5556/callback');
   };
 
   const loginWithMicrosoft = () => {
-    window.location.href = getLoginUrl('cddf4595-71b2-4629-88f2-d758e50efe8', 'microsoft');
+    window.location.href = getLoginUrl('cddf4595-71b2-4629-88f2-d758e50efe8', 'microsoft', 'http://localhost:5556/dex/callback');
+  };
+
+  const loginWithGoogle = () => {
+    window.location.href = getLoginUrl('412028062383-f271jj2jg1p5emv2qmkpt3a4kt6p1f4t.apps.googleusercontent.com', 'google', 'http://127.0.0.1:5556/dex/callback');
   };
 
   const loginWithDex = () => {
-    window.location.href = getLoginUrl('example-app', 'local');
+    window.location.href = getLoginUrl('example-app', 'local', 'http://127.0.0.1:5556/callback');
   };
 
-  const getLoginUrl = (id, type) => {
+  const getLoginUrl = (id, type, uri) => {
     return 'http://212.2.246.126:5556/dex/auth?client_id=' + id +
-      '&redirect_uri=http://localhost:5556/dex/callback&response_type=id_token&' +
-      'scope=email+openid&state=xBFykFZyP2bTGIS&nonce=1234567890&connector_id='
+      '&redirect_uri=' + uri + '&response_type=id_token&' +
+      'scope=email+openid+profile+groups+offline_access&state=xBFykFZyP2bTGIS&nonce=1234567890&connector_id='
       + type;
   };
 
@@ -45,17 +49,20 @@ export default function Home() {
                 </div>
 
                 <div className="btn-wrapper text-center">
-                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button" onClick={loginGithub}>
-                    <div className='className="w-5 mr-2'>
-                      <Image alt="logo" height="15px" width="15px" className="w-5 mr-1" src="/github.svg" />
+                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mx-1 my-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button" onClick={loginGithub}>
+                    <div className='className="w-5'>
+                      <Image alt="logo" height="18px" width="18px" src="/github.svg" />
                     </div>
-                    Github
                   </button>
-                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button" onClick={loginWithMicrosoft}>
-                    <div className='className="w-5 mr-2'>
-                      <Image alt="logo" height="13px" width="13px" src="/microsoft.svg" />
+                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mx-1 my-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button" onClick={loginWithMicrosoft}>
+                    <div className='className="w-5'>
+                      <Image alt="logo" height="17px" width="17px" src="/microsoft.svg" />
                     </div>
-                    Microsoft
+                  </button>
+                  <button className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mx-1 my-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button" onClick={loginWithGoogle}>
+                    <div className='className="w-5'>
+                      <Image alt="logo" height="16px" width="16px" src="/google.svg" />
+                    </div>
                   </button>
                 </div>
 

@@ -6,9 +6,7 @@ const pool = new Pool({
     port: process.env.POSTGRES_PORT,
     user: process.env.POSTGRES_USERNAME,
     password: process.env.POSTGRES_PASSWORD,
-    ssl: {
-        rejectUnauthorized: false,
-    }
+    ssl: false
 });
 
 const getSource = async (id) => {
@@ -36,7 +34,7 @@ export default async function handler(request, response) {
         password: result[0].metadata.password ? result[0].metadata.password : "",
     };
 
-    const req = await fetch("http://localhost:3000/api/connector/" + result[0].type.toLowerCase(), {
+    const req = await fetch("http://localhost:5556/api/connector/" + result[0].type.toLowerCase(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ db: db, query: request.body.query })

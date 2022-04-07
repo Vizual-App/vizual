@@ -8,9 +8,7 @@ export default async function handler(request, response) {
         port: request.body.db.port,
         user: request.body.db.username,
         password: request.body.db.password,
-        ssl: {
-            rejectUnauthorized: false,
-        }
+        ssl: false
     });
 
     const client = await pool.connect();
