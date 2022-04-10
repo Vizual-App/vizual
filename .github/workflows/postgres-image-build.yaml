@@ -3,7 +3,7 @@ on:
 # run it on push to the default repository branch
   push:
     paths:
-      - 'dockerfiles/postgress/**'
+      - 'dockerfiles/postgres/**'
     branches: [main]
 
 env:
