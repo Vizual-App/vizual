@@ -5,6 +5,7 @@ on:
     paths-ignore:
       - 'charts/**'
       - '**.md'
+      - 'dockerfiles/postgres/**'
     branches: [main]
 jobs:
 # define job to build and publish docker image
