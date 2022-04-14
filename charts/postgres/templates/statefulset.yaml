@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       {{- include "postgres.selectorLabels" . | nindent 6 }}
-  serviceName: "nginx"
+  serviceName: {{ include "postgres.fullname" . }}
   replicas: {{ .Values.replicaCount }}
   minReadySeconds: 10 # by default is 0
   template:
