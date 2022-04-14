@@ -5,4 +5,3 @@ GRANT CONNECT ON DATABASE dex_db TO dex;
 CREATE USER vizual WITH PASSWORD 'password';
 CREATE DATABASE vizual_db;
 GRANT ALL PRIVILEGES ON DATABASE vizual_db TO vizual;
-
