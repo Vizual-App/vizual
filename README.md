@@ -6,11 +6,18 @@ Opensource Dashboarding Tool for visualizing data. Integrate different datasourc
 - docker run -p 3000:3000 vizual
 
 
-## Install Vizual using Helm:
+## Install using helm chart
+
+## Install Postgres:
 
 ```bash
 helm repo add vizual https://vizual-app.github.io/vizual/
 helm repo update
 
+helm upgrade -i postgres vizual/postgres -n vizual
+```
+
+## Install Vizual:
+```bash
 helm upgrade -i vizual vizual/vizual -n vizual
 ```
