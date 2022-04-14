@@ -6,6 +6,7 @@ on:
       - 'charts/**'
       - '**.md'
       - 'dockerfiles/postgres/**'
+      - 'scripts/**'
     branches: [main]
 
 env:

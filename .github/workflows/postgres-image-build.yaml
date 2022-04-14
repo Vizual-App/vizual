@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'dockerfiles/postgres/**'
+      - 'scripts/**'
     branches: [main]
 
 env:
