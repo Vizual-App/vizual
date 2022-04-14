@@ -1,12 +1,8 @@
-name: Build and Publish
+name: dex-client Image build
 on:
 # run it on push to the default repository branch
   push:
-    paths-ignore:
-      - 'charts/**'
-      - '**.md'
-      - 'dockerfiles/postgres/**'
-      - 'scripts/**'
+    paths:
       - 'dockerfiles/dex-client/**'
       - 'dex-client/**'
     branches: [main]
@@ -23,11 +19,12 @@ jobs:
     name: Build Docker image and push to repositories
 # run only when code is compiling and tests are passing
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file dockerfiles/vizual/Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/vizual:latest
+      run: docker build . --file dockerfiles/dex-client/Dockerfile --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/dex-client:latest
     - name: Docker push
       run: |
         docker login ${{ env.REGISTRY }} -u jebinjeb -p ${{ secrets.GITHUB_TOKEN }}
-        docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/vizual:latest
+        docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/dex-client:latest 
