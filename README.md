@@ -17,6 +17,19 @@ helm repo update
 helm upgrade -i postgres vizual/postgres -n vizual
 ```
 
+## Install dex:
+```bash
+helm repo add dex https://charts.dexidp.io
+helm repo update
+
+helm upgrade -i dex dex/dex -n vizual
+```
+
+## Install dex client:
+```bash
+helm upgrade -i dex-client vizual/dex-client -n vizual
+```
+
 ## Install Vizual:
 ```bash
 helm upgrade -i vizual vizual/vizual -n vizual
