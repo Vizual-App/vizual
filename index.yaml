@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  dex-client:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-04-23T15:41:31.871579769Z"
+    description: A Helm chart for dex-client
+    digest: bad0cbd8cfa8a5b3a7b943f7ab6c067f5361a494803ffcee13e5d5b41ee0aec2
+    name: dex-client
+    type: application
+    urls:
+    - https://github.com/Vizual-App/vizual/releases/download/dex-client-0.1.0/dex-client-0.1.0.tgz
+    version: 0.1.0
   postgres:
   - apiVersion: v2
     appVersion: 1.16.0
