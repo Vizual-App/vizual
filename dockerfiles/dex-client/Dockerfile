@@ -6,3 +6,4 @@ COPY dex-client/* .
 RUN npm i
 EXPOSE 5557
 CMD ["npm", "run", "start"]
+
