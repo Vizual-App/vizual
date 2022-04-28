@@ -35,6 +35,16 @@ entries:
   vizual:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-04-28T10:43:33.880171666Z"
+    description: A Helm chart for vizual
+    digest: 3056dfd231151c7258b17f39d04b261ce7552e1e37cac0cf602b734807e0f8f1
+    name: vizual
+    type: application
+    urls:
+    - https://github.com/Vizual-App/vizual/releases/download/vizual-0.1.1/vizual-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-03-06T17:12:54.35810844Z"
     description: A Helm chart for Kubernetes
     digest: 8767ccffabdf96afa3ed2d625a8a01b43b5572d7d512fe3067060470b9db3885
